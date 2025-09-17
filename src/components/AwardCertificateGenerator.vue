@@ -37,7 +37,7 @@
       </div>
     </header>
 
-    <main class="mx-auto max-w-7xl px-4 py-6 grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-6">
+    <main class="mx-auto max-w-[120rem] px-4 py-6 grid grid-cols-1 lg:grid-cols-[520px_1fr] gap-6">
       <!-- Controls -->
       <section aria-label="Controls" class="bg-white rounded-2xl shadow p-4 space-y-4">
         <div class="space-y-3">
@@ -275,7 +275,7 @@
                 <!-- Developer-ribbon badge -->
                 <div class="mt-3 flex justify-center">
                   <span
-                    class="px-3 py-1 text-xs uppercase tracking-widest rounded-full border"
+                    class="px-3 py-1 text-md uppercase tracking-widest rounded-full border"
                     :style="{ borderColor: form.accent, color: form.accent }"
                   >
                     {{ currentTemplate.name }}
@@ -319,7 +319,7 @@
 
                 <div class="flex items-center justify-between mt-6 text-sm text-gray-600">
                   <div>{{ form.issuer }}</div>
-                  <div>{{ form.date }}</div>
+                  <div class="mb-1 mr-[-5px]">{{ form.date }}</div>
                 </div>
               </div>
 
@@ -370,7 +370,7 @@ interface TemplateDef {
 const templates: Record<string, TemplateDef> = {
   bug_slayer: {
     key: 'bug_slayer',
-    name: '🐞 Bug Slayer',
+    name: 'Bug Slayer',
     payload: {
       title: 'Certificate of Debugging Excellence',
       subtitle: 'is hereby recognized as a',
@@ -382,7 +382,7 @@ const templates: Record<string, TemplateDef> = {
   },
   best_reviewer: {
     key: 'best_reviewer',
-    name: '🔍 Code Reviewer',
+    name: 'Code Reviewer',
     payload: {
       title: 'Certificate of Review Excellence',
       subtitle: 'is hereby recognized for',
@@ -393,7 +393,7 @@ const templates: Record<string, TemplateDef> = {
   },
   team_player: {
     key: 'team_player',
-    name: '🤝 Team Player',
+    name: 'Team Player',
     payload: {
       title: 'Certificate of Team Excellence',
       subtitle: 'is hereby recognized for',
@@ -414,7 +414,7 @@ const templates: Record<string, TemplateDef> = {
   },
   oncall_hero: {
     key: 'oncall_hero',
-    name: '🚨 On-Call Hero',
+    name: 'On-Call Hero',
     payload: {
       title: 'Certificate of Reliability',
       subtitle: 'is hereby recognized for',
@@ -435,7 +435,7 @@ const templates: Record<string, TemplateDef> = {
   },
   custom: {
     key: 'custom',
-    name: '🎨 Custom',
+    name: 'Custom',
     payload: {},
   },
 }
@@ -461,11 +461,11 @@ const form = reactive({
   withQr: false,
   qrData: 'https://example.com/verify/CERT-2025-0001',
   scale: 100,
-  templateKey: 'bug_slayer' as keyof typeof templates,
+  templateKey: 'team_player' as keyof typeof templates,
   customTemplateName: 'Custom Certificate',
 })
 
-const selectedTemplateKey = ref<keyof typeof templates>('bug_slayer')
+const selectedTemplateKey = ref<keyof typeof templates>('team_player')
 const isExportingPNG = ref(false)
 const isExportingPDF = ref(false)
 
